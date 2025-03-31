@@ -1,0 +1,56 @@
+To solve this problem efficiently, we can use the two-pointer technique. Since the array nums is already sorted, we can iterate through it and move unique elements to the front while keeping track of their count.
+
+Problem Breakdown:
+The task is to remove duplicates in-place.
+
+We need to maintain the order of the unique elements.
+
+The array is sorted, so any duplicate elements will appear consecutively.
+
+Approach:
+Use two pointers:
+
+Pointer i will iterate through the array.
+
+Pointer k will keep track of the position for the next unique element.
+
+Iterate through the array:
+
+Start with k = 1 (since the first element is always unique).
+
+For each new element at nums[i], if nums[i] is different from nums[i - 1], we assign nums[k] = nums[i] and increment k.
+
+Return the count of unique elements (k):
+
+After iterating, k will hold the count of unique elements, and the first k elements of nums will contain the unique values in their original order.
+
+The remaining elements after index k don't matter, as specified in the problem.
+
+
+Explanation:
+Base Case:
+
+If the array is empty, we immediately return 0 since there are no elements.
+
+Main Loop:
+
+Start from the second element (i = 1), and for each element, compare it with the previous one.
+
+If the current element (nums[i]) is different from the previous one (nums[i-1]), it's a unique element, and we place it at the next position (nums[k]), then increment k.
+
+Returning the Result:
+
+After the loop finishes, k will contain the number of unique elements in the array.
+
+The first k elements in the array will be the unique elements in their original order.
+
+Example Outputs:
+
+In the first test case, nums = [1, 1, 2], the output will be 2 because there are two unique elements: [1, 2].
+
+In the second test case, nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4], the output will be 5 because the unique elements are [0, 1, 2, 3, 4].
+
+Time Complexity:
+Time Complexity: O(n), where n is the length of the array. We iterate through the array only once.
+
+Space Complexity: O(1), because we are modifying the array in-place and only using a few extra variables for pointers.
