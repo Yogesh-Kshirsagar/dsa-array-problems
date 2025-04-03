@@ -1,0 +1,65 @@
+Approach:
+Start from the least significant digit (the last element of the array):
+
+If the digit is less than 9, simply add 1 to it and return the modified array. There's no carry-over, so no further modifications are necessary.
+
+If the digit is 9:
+
+Set the current digit to 0 (because 9 + 1 = 10, which results in a carry-over).
+
+Move to the next more significant digit (the previous element in the array) and repeat the process.
+
+Handle the carry-over:
+
+If you reach the most significant digit and it is also 9, set it to 0 and add a new 1 at the beginning of the array. This will handle cases like [9] becoming [1, 0] or [9, 9, 9] becoming [1, 0, 0, 0].
+
+Detailed Steps:
+Start from the last digit (least significant digit).
+
+If the digit is not 9, increment it by 1 and return the array.
+
+If the digit is 9, set it to 0 and move to the next left digit.
+
+If you reach the most significant digit and still have a carry-over, prepend 1 to the array.
+
+Explanation:
+Starting from the Last Digit:
+
+We iterate over the array from the rightmost digit (least significant digit) to the leftmost digit (most significant digit).
+
+Handling the Case Where Digits Are 9:
+
+If the digit is 9, we set it to 0 and move leftwards (towards the more significant digits).
+
+If the digit is less than 9, we simply increment that digit and return the modified array.
+
+Handling the Overflow (All digits were 9):
+
+If all the digits are 9, we will end up with an array like [0, 0, ..., 0]. In this case, we need to create a new array with an extra space to accommodate the carry (1), and the result will start with 1 followed by all 0s.
+
+Example Walkthrough:
+
+Example 1:
+digits = [1, 2, 3]
+After incrementing by 1, digits becomes [1, 2, 4]
+
+Example 2:
+digits = [4, 3, 2, 1]
+After incrementing by 1, digits becomes [4, 3, 2, 2]
+
+Example 3:
+digits = [9]
+After incrementing by 1, digits becomes [1, 0]
+
+Example 4:
+digits = [9, 9, 9]
+After incrementing by 1, digits becomes [1, 0, 0, 0]
+
+Time Complexity:
+Time Complexity: O(n), where n is the length of the array digits. In the worst case, we iterate through all digits (if all digits are 9).
+
+Space Complexity:
+Space Complexity: O(n), where n is the length of the array digits. In the worst case (when all digits are 9), we need to create a new array with one more element to accommodate the carry.
+
+Conclusion:
+This solution efficiently handles the problem by simulating the addition of 1 to a number represented as an array, considering possible carry-overs and ensuring the array is modified in-place. The overall complexity is optimal for this problem.
