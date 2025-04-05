@@ -1,0 +1,68 @@
+Problem Recap:
+You are given a sorted integer array, and you need to convert it into a height-balanced binary search tree (BST). A height-balanced BST is one where the depth of the two subtrees of every node never differs by more than 1.
+
+Approach:
+The approach is the same as before:
+Middle Element as Root: The middle element of the array is chosen as the root of the BST to ensure it is balanced.
+Recursive Division: The left and right halves of the array (excluding the middle element) will recursively form the left and right subtrees, respectively.
+
+Explanation:
+1. TreeNode Class: This is a simple class that defines the structure of a tree node. Each node has:
+	val: The value stored in the node.
+	left: The left child.
+	right: The right child.
+
+2. sortedArrayToBST Method: This is the main method which calls the helper function to convert the sorted array into a balanced BST.
+	It uses a helper function sortedArrayToBSTHelper, which takes the left and right indices of the current subarray and recursively builds the tree.
+
+3. sortedArrayToBSTHelper Method:
+	This method is a recursive function that:
+		Computes the middle element (mid) of the current subarray.
+		Creates a new TreeNode with the value at the middle element.
+		Recursively constructs the left and right subtrees using the subarrays to the left and right of the middle element.
+
+4. Base Case: If left > right, the function returns null to indicate no further nodes can be created.
+
+5. Preorder Traversal (Optional, for testing): The printPreOrder function is used to print the tree in preorder. This is optional and can help verify that the tree is constructed correctly.
+
+Time Complexity:
+O(n): Each element is processed exactly once, so the time complexity is linear in the number of nodes, where n is the length of the input array.
+
+Space Complexity:
+O(log n): The space complexity is determined by the recursive stack, which is proportional to the height of the tree. For a balanced BST, the height is O(log n).
+
+Example Walkthrough:
+Example 1:
+Input: nums = [-10, -3, 0, 5, 9]
+
+	First, the middle element is 0 (index 2), so it becomes the root.
+	The left subarray [-10, -3] will form the left subtree, with -3 as the root of the left subtree.
+		-10 will be the left child of -3.
+
+	The right subarray [5, 9] will form the right subtree, with 9 as the root.
+		5 will be the left child of 9.
+
+	The resulting tree will look like this:
+
+        0
+       / \
+     -3   9
+    /    /
+  -10   5
+
+Example 2:
+Input: nums = [1, 3]
+The middle element is 3, which becomes the root.
+The left element 1 becomes the left child of 3.
+
+The resulting tree:
+    3
+   /
+  1
+
+Output:
+Preorder traversal of BST1:
+0 -3 -10 5 9 
+Preorder traversal of BST2:
+3 1
+This solution constructs the height-balanced BST and prints its preorder traversal to verify the structure.
