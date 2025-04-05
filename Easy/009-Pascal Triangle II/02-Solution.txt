@@ -1,0 +1,42 @@
+To solve this problem, we need to generate a specific row in Pascal's Triangle. Each row in Pascal's Triangle is generated based on the previous one, and each element in the row can be derived from the elements above it.
+
+Key Observations:
+1. First and Last Elements: The first and last elements in any row are always 1.
+2. Elements Between: Any element in between is the sum of the two elements directly above it. For example, the second element of row i is the sum of the first and second elements from row i-1.
+
+However, we don’t need to construct the entire triangle for this task. We only need the specific row indexed by rowIndex, and there's a more efficient way to compute it without generating all the rows.
+
+Efficient Approach:
+Instead of generating the whole triangle, we can directly compute the row using the following method:
+1. Iterative Computation: Starting from the first element 1, compute the next elements by using the property of Pascal’s Triangle:
+where C(i, j) represents the element at row i and column j.
+	C(i, 0) is always 1.
+	C(i, j) for j > 0 is computed iteratively using the formula above.
+
+Explanation:
+1. Initial Setup: We start by adding 1 to the list, as the first element in every row is always 1.
+2. Iterative Calculation: We use the formula to compute each subsequent element in the row based on the previous element: 
+This formula efficiently calculates each element in the row without needing to construct the entire triangle.
+3. Return the Row: Once the row is computed, we return it.
+
+Time Complexity:
+O(rowIndex): We only need to iterate through rowIndex elements to compute the row.
+
+Space Complexity:
+O(rowIndex): We store the row, which contains rowIndex + 1 elements.
+
+Example Walkthrough:
+Example 2:
+Input: rowIndex = 0
+
+The only element is 1, so the row is [1].
+
+Example 3:
+Input: rowIndex = 1
+The row is [1, 1].
+
+Output:
+Row 3: [1, 3, 3, 1]
+Row 0: [1]
+Row 1: [1, 1]
+This solution efficiently computes the rowIndexth row of Pascal's Triangle with minimal space and time complexity.
