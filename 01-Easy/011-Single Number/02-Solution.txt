@@ -1,0 +1,64 @@
+To solve this problem efficiently, we need to find the element that appears only once in the array, while all other elements appear twice.
+
+Key Insights:
+1. XOR Operation:
+	The XOR operation (^) has a very useful property:
+		a ^ a = 0 (XOR of a number with itself is 0)
+		a ^ 0 = a (XOR of a number with 0 is the number itself)
+		XOR is commutative and associative, meaning the order of operations doesn't matter.
+
+	Given this, if you XOR all the numbers in the array, all the numbers that appear twice will cancel out (because x ^ x = 0), and the only number that appears once will remain.
+
+2. Constant Space:
+	We are asked to use constant extra space, meaning we cannot use additional data structures like hashmaps or arrays.
+	XOR allows us to solve this problem in a space-efficient way by only keeping track of a single variable.
+
+Approach:
+Initialize a variable, say result, to 0.
+Traverse through the array and XOR each number with result.
+By the end of the loop, the result will contain the element that appears only once, as all elements that appear twice will have canceled out to zero.
+
+Explanation:
+Initial Value: result = 0
+We start with 0 because XORing any number with 0 leaves the number unchanged.
+
+XOR Operation:
+As we loop through the array, we XOR each element with result.
+For every pair of equal numbers, their XOR will result in 0 (a ^ a = 0).
+The only number that doesn't get canceled out will be the number that appears once.
+
+Final Result:
+After processing all the numbers, the result will contain the number that appears only once.
+
+Time and Space Complexity:
+Time Complexity: O(n), where n is the length of the array. We iterate through the array once, and each XOR operation takes constant time.
+
+Space Complexity: O(1), because we only use a single integer variable (result) to store the result, which does not depend on the size of the input.
+
+Example Walkthrough:
+Example 1:
+Input: nums = [2, 2, 1]
+result = 0
+First iteration: result = 0 ^ 2 = 2
+Second iteration: result = 2 ^ 2 = 0
+Third iteration: result = 0 ^ 1 = 1
+Output: 1
+
+Example 2:
+Input: nums = [4, 1, 2, 1, 2]
+result = 0
+First iteration: result = 0 ^ 4 = 4
+Second iteration: result = 4 ^ 1 = 5
+Third iteration: result = 5 ^ 2 = 7
+Fourth iteration: result = 7 ^ 1 = 6
+Fifth iteration: result = 6 ^ 2 = 4
+Output: 4
+
+Example 3:
+Input: nums = [1]
+result = 0
+First iteration: result = 0 ^ 1 = 1
+Output: 1
+
+Conclusion:
+This solution efficiently finds the single number in linear time and constant space, making it an optimal approach to solve this problem.
