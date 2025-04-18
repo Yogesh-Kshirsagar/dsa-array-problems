@@ -1,0 +1,30 @@
+✅ Goal
+Move all 0s to the end of the array, while:
+
+Keeping the relative order of non-zero elements
+
+Doing it in-place
+
+Minimizing operations
+
+💡 Optimal Solution: Two Pointer Approach (O(n) Time, O(1) Space)
+Idea:
+Use a nonZeroIndex pointer to track the position where the next non-zero should go.
+Loop through the array:
+   If the current number is non-zero, put it at nonZeroIndex and increment nonZeroIndex.
+After the loop, fill the rest of the array with 0s from nonZeroIndex to end.
+
+Time and Space Complexity
+Time	O(n)
+Space	O(1)
+In-place	✅ Yes
+Minimizes writes	✅ Yes — each element is written at most once
+
+Dry Run:
+For nums = [0, 1, 0, 3, 12]
+
+Move 1 → index 0 → nums = [1, 1, 0, 3, 12]
+Move 3 → index 1 → nums = [1, 3, 0, 3, 12]
+Move 12 → index 2 → nums = [1, 3, 12, 3, 12]
+
+Fill 0s from index 3 onwards → nums = [1, 3, 12, 0, 0]
