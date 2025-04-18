@@ -1,0 +1,13 @@
+Problem Summary:
+Given two arrays nums1 and nums2.
+Return all common elements, where each element should appear as many times as it shows in both arrays.
+Result order doesn't matter.
+
+✅ Best Approach: Use a HashMap to Count Frequencies
+💡 Intuition:
+Use a HashMap to count how many times each number appears in nums1.
+Loop through nums2, and if the number exists in the map with a count > 0, add it to the result and decrement the count in the map.
+
+Time & Space Complexity
+Time	O(n + m) — n = nums1.length, m = nums2.length
+Space	O(n) — for storing the frequency map of nums1
