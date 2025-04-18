@@ -1,0 +1,18 @@
+✅ Optimal Approach: Sum Formula
+
+Intuition:
+The sum of the first n natural numbers (from 0 to n) is:
+total = n * (n + 1) / 2
+If you subtract the sum of the given array from total, the result will be the missing number.
+
+Time & Space Complexity:
+Time	O(n)
+Space	O(1)
+
+Example:
+For nums = [3, 0, 1]:
+n = 3
+
+expectedSum = 3 * (3 + 1) / 2 = 6
+actualSum = 3 + 0 + 1 = 4
+missing = 6 - 4 = 2
