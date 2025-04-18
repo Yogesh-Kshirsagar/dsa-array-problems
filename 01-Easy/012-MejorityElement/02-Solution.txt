@@ -1,0 +1,6 @@
+Explanation:
+The Boyer-Moore Voting Algorithm works by finding a potential majority candidate.
+
+If a count drops to zero, we switch the candidate.
+
+Since the problem guarantees that a majority element always exists, we don't need a second pass to confirm the candidate.
