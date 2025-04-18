@@ -1,0 +1,7 @@
+HashSet lets you check existence and insert in constant time.
+
+As soon as we find a number that’s already in the set, we return true.
+
+Much faster than sorting (O(n log n)), especially for large n.
+
+If you're targeting competitive programming or DSA interviews, this approach is totally acceptable and encouraged unless space is very limited.
