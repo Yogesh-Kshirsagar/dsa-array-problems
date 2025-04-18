@@ -1,0 +1,16 @@
+✅ Optimal Approach: Use Hash Sets
+🔍 Intuition:
+Use a Set to store the elements of the first array.
+Iterate over the second array:
+  If an element is in the set, it's an intersection → add to result set.
+Use a Set for the result to avoid duplicates.
+
+Time and Space Complexity:
+Time	O(n + m) — where n and m are lengths of nums1 and nums2
+Space	O(n + m) — for the two sets
+
+Follow-Up (if HashSet not allowed):
+If you're not allowed to use extra space, you can:
+ Sort both arrays → Use two pointers to find intersection
+ Time: O(n log n + m log m) due to sorting
+ Space: O(1) (ignoring output)
