@@ -1,0 +1,22 @@
+✅ Approach: Two Pointers (Start and End of a Range)
+
+Initialize a start pointer at the beginning of a potential range.
+Move a pointer i forward as long as the numbers are consecutive (i.e., nums[i] == nums[i-1] + 1).
+When a break occurs (or we reach the end), we:
+Add the range from start to nums[i-1]:
+If start == nums[i-1], it's a single number → add "start"
+Else, it's a range → add "start->nums[i-1]"
+Repeat until we process all numbers.
+
+Dry Run with Example 1:
+Input: [0, 1, 2, 4, 5, 7]
+
+Start at 0 → 1 → 2 → not consecutive with 4 → 0->2
+Start at 4 → 5 → not consecutive with 7 → 4->5
+Start at 7 → no more numbers → 7
+
+Output: ["0->2", "4->5", "7"]
+
+⏱️ Time Complexity:
+O(n) — one pass through the array
+O(1) extra space (excluding output)
