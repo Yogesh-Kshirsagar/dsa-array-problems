@@ -1,0 +1,14 @@
+✅ Problem Summary:
+Given an integer array nums, return:
+ The third distinct maximum number if it exists.
+ Otherwise, return the maximum number.
+
+✅ Efficient Approach: Track Top 3 Distinct Maxima Manually
+💡 Idea:
+We don’t sort the entire array.
+Instead, we keep track of the top three distinct values using three variables (first, second, third).
+Update these values as we iterate.
+
+Time and Space Complexity:
+Time	O(n)
+Space	O(1)
