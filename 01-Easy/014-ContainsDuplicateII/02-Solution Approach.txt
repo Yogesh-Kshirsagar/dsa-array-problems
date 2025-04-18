@@ -1,0 +1,29 @@
+Instead of checking every possible pair (which is too slow for large arrays), we slide a window of size k across the array and:
+
+Keep track of the elements in the window.
+If we see a duplicate within the window, it means the same value appears within k distance → return true.
+
+Step-by-step Logic
+Create a Set (to store values in the current window).
+Loop through each element i in the array:
+If nums[i] is already in the set → duplicate within range found → return true.
+Else, add nums[i] to the set.
+If the set size becomes larger than k, remove the element that is now outside the window: nums[i - k].
+If the loop ends with no duplicates in range → return false.
+
+Example Walkthrough
+nums = [1, 0, 1, 1], k = 1
+
+Steps:
+i = 0: Set = {} → Add 1 → Set = {1}
+i = 1: Set = {1} → Add 0 → Set = {0, 1} → Remove 1 (since i - k = 0) → Set = {0}
+i = 2: Set = {0} → Add 1 → Set = {0, 1} → Remove 0 → Set = {1}
+i = 3: Set = {1} → 1 is already in the set → return true
+
+📈 Time and Space Complexity
+Time	O(n) — One pass
+Space	O(k) — Set holds up to k elements
+
+✅ When to Use This:
+This is the go-to method when dealing with duplicate detection within a distance.
+Works great even for large arrays (n = 10^5) as long as you can use a Set.
