@@ -1,0 +1,47 @@
+✅ Step-by-Step Approach:
+
+Step 1: Understand the Problem
+You have two arrays:
+g[]: greed factor of each child (minimum cookie size they need to be content).
+s[]: size of each available cookie.
+
+Each child can get at most one cookie.
+A child is content if they receive a cookie where cookie size >= greed factor.
+Objective: Assign cookies in a way that maximizes the number of content children.
+
+Step 2: Use a Greedy Strategy
+Greedy means: always make the most optimal local choice.
+In this case:
+Always try to give the smallest possible cookie that satisfies the least greedy child.
+This leaves larger cookies for greedier children.
+
+Step 3: Sort Both Arrays
+Sorting helps match the least greedy child with the smallest adequate cookie.
+After sorting:
+g[]: children sorted by increasing greed.
+s[]: cookies sorted by increasing size.
+
+Step 4: Use Two Pointers
+Pointer i tracks current child (starting from 0).
+Pointer j tracks current cookie (starting from 0).
+Loop until one of the arrays is exhausted:
+If s[j] >= g[i], assign cookie j to child i → move both pointers forward.
+Else, cookie j is too small → try next cookie by incrementing j.
+
+Step 5: Return the Result
+Once done, i represents the number of content children (because we only increment i when a child is satisfied).
+
+✅ Visual Example
+Input:
+g = [1, 2, 3]
+s = [1, 1]
+Sorted:
+
+g = [1, 2, 3]
+s = [1, 1]
+Step-by-step:
+g[0]=1, s[0]=1 → satisfy → i=1, j=1
+g[1]=2, s[1]=1 → not satisfied → j=2
+Exit (cookies exhausted) → i=1 child satisfied
+
+Output: 1
