@@ -1,0 +1,30 @@
+Key Observations:
+Let n be the total number of candies.
+Alice can eat n / 2 candies.
+Let uniqueTypes be the number of distinct candy types in candyType.
+So, the maximum different types Alice can eat is:
+
+min(uniqueTypes, n / 2)
+Because:
+She can't eat more than n / 2 total candies.
+She can't eat more types than actually exist.
+
+Time and Space Complexity:
+Time Complexity: O(n) — iterate over the array once.
+Space Complexity: O(k) — where k is the number of unique types (at most n).
+
+Example Walkthrough:
+Input: [1, 1, 2, 2, 3, 3]
+Total candies: 6 → Alice can eat 3
+Unique types: 3
+Result: min(3, 3) = 3
+
+Input: [1, 1, 2, 3]
+Total candies: 4 → Alice can eat 2
+
+Unique types: 3
+Result: min(3, 2) = 2
+Input: [6, 6, 6, 6]
+Total candies: 4 → Alice can eat 2
+Unique types: 1
+Result: min(1, 2) = 1
