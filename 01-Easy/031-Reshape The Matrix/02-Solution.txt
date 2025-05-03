@@ -1,0 +1,16 @@
+Problem Summary:
+Given a matrix mat of size m x n, and two integers r and c, return a new matrix of size r x c containing the elements of mat in row-wise (left to right, top to bottom) order.
+If r * c != m * n, the reshape is not possible, so return the original matrix.
+
+Step-by-Step Approach:
+Step 1: Check feasibility
+If m * n != r * c, return mat as is.
+
+Step 2: Create new matrix
+Initialize a new matrix reshaped with size r x c.
+
+Step 3: Traverse and fill
+Flatten the original matrix using a nested loop (row-wise).
+As you iterate, fill the reshaped matrix using a running index i, mapping it as:
+row = i / c
+col = i % c
