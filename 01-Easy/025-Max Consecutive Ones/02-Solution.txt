@@ -1,0 +1,17 @@
+Problem Understanding:
+You're given an array of 0s and 1s. You need to find the length of the longest sequence of consecutive 1s.
+
+Step-by-Step Solution:
+Step 1: Initialize Two Variables
+maxCount = 0: Keeps track of the maximum number of consecutive 1s found.
+currentCount = 0: Tracks the current streak of consecutive 1s.
+
+Step 2: Loop Through the Array
+For each element num in nums:
+If num == 1, increment currentCount.
+If num == 0, reset currentCount to 0.
+Update maxCount with Math.max(maxCount, currentCount).
+
+Time and Space Complexity:
+Time: O(n), where n is the length of the array.
+Space: O(1), uses only two integer variables.
