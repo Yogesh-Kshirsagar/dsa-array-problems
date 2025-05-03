@@ -1,0 +1,21 @@
+Problem Summary:
+Teemo attacks at specific times (timeSeries[i]).
+Each attack poisons Ashe for exactly duration seconds: [t, t + duration - 1].
+If a new attack happens before the previous poison expires, it resets the poison timer — overlapping time is not double-counted.
+
+Step-by-Step Solution:
+Step 1: Initialize Total Poisoned Time
+Create a variable totalPoisonedTime = 0.
+
+Step 2: Loop Through All Attacks
+Iterate from the first attack to the second last one:
+Let current = timeSeries[i] and next = timeSeries[i + 1]
+
+If the next attack starts after the current poison ends:
+➤ Add full duration to total.
+
+Else (they overlap):
+➤ Only add next - current to total (since that’s the non-overlapping portion).
+
+Step 3: Add Duration for Last Attack
+After the loop, add duration for the last attack (since it wasn’t handled inside the loop).
