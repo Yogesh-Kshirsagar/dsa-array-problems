@@ -1,0 +1,11 @@
+Key Insight (Greedy Strategy)
+To maximize the sum of min(ai, bi):
+We want to pair the smallest numbers together, not spread them out.
+If you sort the array and always take the first number of each pair, you’ll get the maximum sum of minimums.
+Why? Because any time you pair a small number with a much larger number, you're wasting the larger one (since min(a, b) takes the smaller one).
+
+Step-by-Step Plan
+Sort the array in ascending order.
+Iterate through the sorted array, taking every second element (i.e., at even indices i = 0, 2, 4, ...) and add it to the sum.
+These represent the smaller number in each pair: (nums[i], nums[i+1])
+
