@@ -1,0 +1,18 @@
+✅ Optimal Solution — In-Place Marking (No Extra Space)
+💡 Idea:
+Since nums[i] is always between 1 and n, you can use the indices of the array to mark visited numbers by making the number at that index negative.
+
+Iterate through the array:
+ For each number num, compute index = abs(num) - 1
+ Mark nums[index] as negative to indicate that the number index + 1 has been seen
+ In a second pass, any index i where nums[i] > 0 means i + 1 was not seen
+
+Time and Space Complexity:
+Time	O(n)
+Space	O(1) extra (excluding result list)
+
+Example Breakdown:
+Input: [4,3,2,7,8,2,3,1]
+ After marking: → [-4,-3,-2,-7,8,2,-3,-1]
+ Unmarked (positive) indices: 4 and 5 (0-based)
+ So missing numbers: 5, 6
