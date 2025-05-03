@@ -1,0 +1,15 @@
+Step-by-Step Approach:
+Step 1: Define the Keyboard Rows
+	Store each row as a Set of lowercase characters:
+	row1 = "qwertyuiop"
+	row2 = "asdfghjkl"
+	row3 = "zxcvbnm"
+
+Step 2: For Each Word:
+	Convert the word to lowercase.
+	Determine which row the first letter belongs to.
+	Check if all letters of the word are in that same row.
+
+Step 3: Return Words That Match
+	Collect and return the words that satisfy the condition.
+

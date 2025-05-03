@@ -1,0 +1,24 @@
+Problem Breakdown:
+Input:
+An array score of size n, where score[i] represents the score of the i-th athlete.
+The athletes are ranked based on their score in descending order.
+
+Ranking Logic:
+The 1st place athlete (highest score) gets "Gold Medal".
+The 2nd place athlete gets "Silver Medal".
+The 3rd place athlete gets "Bronze Medal".
+For the 4th place onward, the athlete's rank is simply their position in the ordered list, i.e., "4", "5", etc.
+
+Objective:
+Return an array answer where answer[i] represents the rank of the i-th athlete in the original input array.
+
+Solution Approach:
+Sort the scores in descending order to determine the ranking.
+Map the sorted scores to their respective ranks.
+Generate the result array by using the original positions in the score array and returning the corresponding rank.
+
+Detailed Plan:
+Create a list of pairs: Pair each score with its index, so we can retrieve the rank based on the original order.
+Sort this list by scores in descending order.
+Assign ranks: For the first three athletes, assign "Gold Medal", "Silver Medal", and "Bronze Medal". For subsequent athletes, assign the rank based on their position.
+Build the result: For each athlete in the original array, assign the rank corresponding to their score.
