@@ -1,0 +1,21 @@
+✅ Problem Understanding:
+Each land cell (1) contributes 4 sides initially.
+If it shares a side with another land cell, subtract 1 for each shared side.
+You only check right and down neighbors to avoid double-counting shared sides.
+
+✅ Step-by-Step Approach:
+Step 1: Initialize perimeter to 0
+Step 2: Loop through each cell in the grid
+For every cell (i, j):
+
+If it's land (grid[i][j] == 1), add 4 to the perimeter.
+Then check its bottom neighbor (i+1, j):
+If it is also land, subtract 2 from perimeter (shared edge).
+Then check its right neighbor (i, j+1):
+If it is also land, subtract 2 from perimeter (shared edge).
+
+Note: Subtract 2 because each shared side affects two land cells.
+
+Time and Space Complexity:
+Time: O(rows × cols) — visit each cell once.
+Space: O(1) — only a few variables used, no extra data structures.
