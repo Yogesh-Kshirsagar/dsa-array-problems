@@ -1,0 +1,18 @@
+Step-by-Step Approach:
+
+Step 1: Use a monotonic decreasing stack
+	Traverse nums2 from left to right.
+	For each number:
+		While the stack is not empty and current number is greater than the top of the stack:
+			Pop the top and record in the map that this number’s next greater is the current number.
+		Push the current number to the stack.
+
+Step 2: Build a map of next greater elements
+	For every element x in nums2, store nextGreaterMap[x] = y, where y is the next greater element of x (or -1 if none exists).
+
+Step 3: Build the result array for nums1
+	For each element in nums1, use the map to get the next greater value.
+
+Time and Space Complexity:
+Time: O(n + m) — where n = nums2.length and m = nums1.length.
+Space: O(n) — for the stack and map.
