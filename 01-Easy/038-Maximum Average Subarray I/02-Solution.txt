@@ -1,0 +1,15 @@
+Step-by-Step Approach:
+
+Step 1: Sliding Window Concept
+Instead of recalculating the sum of each subarray from scratch (which would be O(n*k)), we use a sliding window of size k:
+Start by calculating the sum of the first k elements.
+Then slide the window one element at a time:
+	Subtract the element that is leaving the window.
+	Add the new element entering the window.
+Keep track of the maximum sum encountered.
+
+Step 2: Compute Average
+Since we're interested in the average, simply divide the maximum sum by k at the end.
+
+Time Complexity: O(n) – We scan the array once.
+Space Complexity: O(1) – Constant extra space.
