@@ -1,0 +1,67 @@
+Problem Recap:
+You are given:
+A matrix of size m x n, initially filled with 0s.
+A list of operations ops, where each operation ops[i] = [a, b] means:
+	Add 1 to all elements in the submatrix from (0, 0) to (a-1, b-1).
+You need to find the count of elements in the matrix that have the maximum value after all operations are applied.
+
+Step-by-Step Approach:
+Step 1: Understand what each operation does
+Each operation [a, b] increases all elements in the top-left a x b submatrix by 1.
+So, multiple operations will cause overlapping increments in parts of the matrix.
+
+Step 2: Recognize where the maximum values are
+After all operations:
+	Some cells will be incremented many times (those inside all operations' overlap).
+	Some will be incremented fewer times (those outside some operations).
+
+The maximum value in the matrix will be at the cells that were included in every operation — i.e., the overlapping region of all [a, b].
+
+Step 3: Find the overlapping region
+To find the area that is common to all operations:
+	Track the smallest value of a among all operations → call this minRow
+	Track the smallest value of b among all operations → call this minCol
+
+Because only the minRow x minCol region is guaranteed to be affected by every operation.
+
+Step 4: Calculate result
+The number of cells with the maximum value is:
+	result = minRow * minCol
+Why? Because this is the number of cells that got incremented by every operation.
+
+Step 5: Handle edge case
+If ops is empty, then no increments are done.
+	All cells remain 0, which is still the maximum value.
+	So, return m * n (the entire matrix is the result).
+
+Final Formula:
+if ops is empty:
+    return m * n
+else:
+    minRow = minimum of all ops[i][0]
+    minCol = minimum of all ops[i][1]
+    return minRow * minCol
+
+Example Walkthrough:
+Input:
+m = 3, n = 3
+ops = [[2, 2], [3, 3]]
+
+Matrix is initially:
+0 0 0
+0 0 0
+0 0 0
+
+First operation [2, 2]: increment top-left 2x2 area:
+1 1 0
+1 1 0
+0 0 0
+
+Second operation [3, 3]: increment entire 3x3 matrix:
+2 2 1
+2 2 1
+1 1 1
+
+Max value is 2, found in top-left 2x2 area.
+
+Result = 2 x 2 = 4
