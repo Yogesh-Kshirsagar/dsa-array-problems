@@ -1,0 +1,16 @@
+Step-by-Step Approach:
+Step 1: Understand where a flower can be planted
+A flower can be planted at position i if:
+	flowerbed[i] == 0 (it's empty),
+	and the left neighbor flowerbed[i - 1] == 0 or doesn't exist (i == 0),
+	and the right neighbor flowerbed[i + 1] == 0 or doesn't exist (i == flowerbed.length - 1).
+
+Step 2: Iterate through the array
+If a flower can be planted at position i, plant it by setting flowerbed[i] = 1 and decrement n.
+If at any point n becomes 0, return true early.
+
+Step 3: Final decision
+After the loop, if n > 0, return false
+
+Time Complexity: O(n), where n is the length of the flowerbed.
+Space Complexity: O(1), since we modify the input array in-place.
