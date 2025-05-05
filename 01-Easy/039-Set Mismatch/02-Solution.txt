@@ -1,0 +1,14 @@
+Problem Understanding
+You are given an array nums of length n, which should contain all integers from 1 to n. However:
+	One number is duplicated (appears twice),
+	One number is missing (doesn't appear at all).
+
+Step-by-Step Approach
+Step 1: Count Frequency
+Use a simple int[] of size n+1 to count the frequency of each number.
+Traverse the array and track:
+	The number that occurs twice (frequency = 2),
+	The number that is missing (frequency = 0).
+
+Time Complexity: O(n) – One pass to count, one pass to find the result.
+Space Complexity: O(n) – For the counting array.
