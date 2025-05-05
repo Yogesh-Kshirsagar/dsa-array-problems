@@ -1,0 +1,16 @@
+Problem Summary:
+Given an array nums, find the length of the longest subarray where each number is strictly greater than the previous one.
+
+Step-by-Step Approach:
+Initialize two variables:
+	maxLength to keep track of the overall longest length found.
+	currentLength to track the current increasing sequence length.
+Iterate through the array from index 1 to the end:
+	If nums[i] > nums[i - 1], increment currentLength.
+	Else, reset currentLength to 1 (since sequence breaks).
+	Update maxLength with the maximum of itself and currentLength.
+Return maxLength.
+
+Time Complexity: O(n) — where n is the length of the array.
+Space Complexity: O(1) — constant extra space used.
+
