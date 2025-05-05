@@ -1,0 +1,18 @@
+Step-by-Step Approach:
+Step 1: Store indices of list1
+Use a HashMap<String, Integer> to store each string in list1 with its index.
+This allows us to check and compute index sums in constant time.
+
+Step 2: Traverse list2 and compute index sums
+For each string in list2, check if it exists in the map.
+If it does:
+	Calculate the index sum: i + j
+	Keep track of the minimum index sum found so far.
+	Use a List<String> to collect strings that match the current minimum.
+
+Step 3: Return the result list
+Convert the result list to an array and return it.
+
+Time Complexity: O(n + m), where n and m are lengths of list1 and list2
+Space Complexity: O(n) for storing indices of list1
+
