@@ -1,0 +1,15 @@
+Step-by-Step Approach
+
+Step 1: Initialize result matrix
+Create a new matrix res of the same size as the input img.
+
+Step 2: Iterate through each cell
+For each cell (i, j) in img, iterate through all 3x3 neighbors around (i, j):
+	Valid neighbors are those within bounds 0 <= ni < m and 0 <= nj < n.
+	Accumulate the sum and count of valid neighbors.
+
+Step 3: Compute average
+Set res[i][j] = sum / count using integer division (/), which gives the floor of the average.
+
+Time Complexity: O(m × n) — every cell is visited and at most 9 neighbors are checked.
+Space Complexity: O(m × n) — for the result matrix.
