@@ -1,0 +1,12 @@
+Approach: Separate Chaining with Buckets
+We will:
+	Create a fixed-size array of buckets (e.g. 1000 or a prime number like 769)
+	Each bucket holds a list of key-value pairs
+	On collision (same hash index), we traverse and update or add as needed
+
+Time and Space Complexity
+Operation	Average Case	Worst Case
+put	O(1)	O(n) (if all keys hash to same bucket)
+get	O(1)	O(n)
+remove	O(1)	O(n)
+Space	O(N + B)	where N = number of elements, B = buckets
