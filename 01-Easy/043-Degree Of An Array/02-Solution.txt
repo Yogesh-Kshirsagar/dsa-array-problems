@@ -1,0 +1,21 @@
+Approach (Step-by-Step)
+We’ll use three simple hash maps (you can implement them manually using arrays if required):
+	countMap: keeps track of how many times each number appears.
+	firstIndexMap: records the first index of each number.
+	lastIndexMap: records the last index of each number.
+
+Step-by-Step Algorithm
+Iterate through the nums array:
+	For each number:
+		Increase its count in countMap.
+		If it's the first time we see it, store its index in firstIndexMap.
+		Update its last seen index in lastIndexMap.
+
+Find the maximum frequency (degree) in countMap.
+For all numbers with that frequency:
+	Compute length = lastIndexMap[num] - firstIndexMap[num] + 1
+	Track the minimum length among these.
+
+Time and Space Complexity
+Time Complexity: O(n) — One pass to build maps, another to compute min length.
+Space Complexity: O(n) — For storing counts and indices.
