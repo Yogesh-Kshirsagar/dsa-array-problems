@@ -1,0 +1,9 @@
+Key Idea (DFS)
+Start from the pixel (sr, sc).
+Get the original color at that position.
+If the original color is the same as the new color, return the image (nothing to change).
+Use DFS to recursively update all 4-directionally connected pixels that have the same original color.
+
+Time and Space Complexity
+Time Complexity: O(m * n) — In worst case, every pixel is visited.
+Space Complexity: O(m * n) — Due to recursive call stack in DFS.

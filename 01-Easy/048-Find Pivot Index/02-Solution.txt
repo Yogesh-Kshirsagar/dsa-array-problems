@@ -1,0 +1,12 @@
+Approach (Prefix Sum Trick)
+First, calculate the total sum of the array.
+Initialize a variable leftSum = 0.
+Iterate through the array:
+	At each index i, the right sum would be totalSum - leftSum - nums[i].
+	If leftSum == right sum, return i as the pivot index.
+	Otherwise, add nums[i] to leftSum.
+If no pivot index is found, return -1.
+
+Time and Space Complexity
+Time: O(n) — One pass to get totalSum, another to find pivot.
+Space: O(1) — Only uses a few variables.
