@@ -1,0 +1,40 @@
+Problem Understanding
+You are given a list of strings representing operations. You need to apply these to a record (list of scores), which changes based on the rules:
+	An integer → add it to the record.
+	"C" → remove the last score.
+	"D" → double the last score and add the result.
+	"+" → sum the last two scores and add the result.
+
+At the end, return the sum of all the scores in the record.
+
+Approach
+We will use a stack (Stack<Integer>) to maintain the history of valid scores.
+This is because:
+	We need quick access to the most recent score (or two).
+	We need to be able to easily remove the last score ("C" operation).
+	Stack’s push(), pop(), and peek() operations make this easy.
+
+Step-by-Step Algorithm
+Initialize an empty stack to store scores.
+Iterate over each operation in the input array:
+	If it's an integer (e.g., "5", "-3"), parse it and push onto the stack.
+	If it's "C", pop the last score off the stack.
+	If it's "D", peek the last score, double it, and push the result.
+	If it's "+", pop the top score, peek to get the second last, compute the sum, push the top score back, then push the sum.
+After all operations, sum all values in the stack to get the final score.
+
+Example Walkthrough
+Input: ["5", "2", "C", "D", "+"]
+Operation	Stack	Explanation
+"5"	[5]	Add 5
+"2"	[5, 2]	Add 2
+"C"	[5]	Remove last score (2)
+"D"	[5, 10]	Double last score (5 * 2 = 10)
+"+"	[5, 10, 15]	Sum last two scores (5 + 10 = 15)
+
+Final Sum = 5 + 10 + 15 = 30
+
+Why Stack?
+You need to access and modify the last few items frequently.
+Stack gives O(1) time complexity for push, pop, and peek, which makes it efficient for this problem.
+
