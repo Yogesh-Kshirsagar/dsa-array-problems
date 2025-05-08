@@ -1,0 +1,17 @@
+Rules Recap:
+'0' → a 1-bit character
+'10' or '11' → a 2-bit character
+The input array always ends with 0, and you need to determine whether that last 0 is a one-bit character or part of a two-bit character.
+
+Key Insight:
+Start reading from the beginning and try to consume characters according to the rules:
+	If you see 0, move to the next bit (i += 1)
+	If you see 1, it must be a 2-bit character (10 or 11), so skip two bits (i += 2)
+
+At the end:
+	If your pointer lands exactly on the last bit, then it's a one-bit character → return true
+	If your pointer skips past the last bit → the last 0 was part of a 2-bit character → return false
+
+Time and Space Complexity
+Time Complexity: O(n)
+Space Complexity: O(1)
