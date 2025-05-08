@@ -1,0 +1,17 @@
+Design Choices
+Bucket array:
+	Use a fixed-size array (buckets) of LinkedList (or simple array-based lists) to store keys.
+	The size of the array should be a prime number (e.g., 769) to reduce collisions.
+
+Hash Function:
+	Use key % bucketSize as the hash function to map keys to buckets.
+
+Operations:
+	add(key): Hash the key, add to the bucket if not already present.
+	remove(key): Hash the key, remove from the bucket if present.
+	contains(key): Hash the key, check if it exists in the bucket.
+
+Time Complexity (Average Case)
+add, remove, and contains: O(1) average due to hashing.
+In the worst-case (all keys hash to same bucket): O(n) for a single operation.
+
