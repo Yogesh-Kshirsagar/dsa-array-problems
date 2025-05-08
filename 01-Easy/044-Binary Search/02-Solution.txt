@@ -1,0 +1,19 @@
+To solve this problem efficiently in O(log n) time, you should use the binary search algorithm since:
+	The array is sorted.
+	You are required to find the element's index or return -1 if not found.
+	Binary search splits the array in half each time, meeting the O(log n) requirement.
+
+Binary Search Algorithm – Step-by-Step
+Initialize two pointers:
+	left = 0
+	right = nums.length - 1
+While left <= right:
+	Calculate mid = left + (right - left) / 2 (to avoid integer overflow).
+	If nums[mid] == target, return mid.
+	If nums[mid] < target, move left pointer to mid + 1.
+	If nums[mid] > target, move right pointer to mid - 1.
+If not found, return -1.
+
+Time and Space Complexity
+Time Complexity: O(log n) — halving the search space each iteration.
+Space Complexity: O(1) — uses constant extra space.
